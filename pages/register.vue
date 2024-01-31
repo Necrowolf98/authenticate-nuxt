@@ -16,8 +16,15 @@ const form = ref({
 
 const auth = useAuthStore();
 
+const errors = ref<{
+  [key in keyof typeof form]?: string[]
+}>({});
+
 async function handleRegister() {
   const {error} = await auth.register(form.value);
+  if(error.value?.statusCode === 422){
+    errors.value = error.value.data?.errors;
+  }
   if (!error.value) {
     navigateTo("/");
   }
@@ -26,10 +33,8 @@ async function handleRegister() {
 
 <template>
   <form @submit.prevent="handleRegister">
-    <label>
-      Name
-      <input v-model="form.name" type="text">
-    </label>
+
+      <InputText type="text" class="p-inputtext-sm border-round" v-model="form.name" />
     <label>
       Email
       <input v-model="form.email" type="email">
@@ -44,7 +49,14 @@ async function handleRegister() {
     </label>
 
     <button>Register</button>
-  </form>
+
+    <p class="error" v-for="error in errors">{{ error }}</p>
+
+</form>
 </template>
 
-<style scoped></style>
+<style scoped>
+html{
+  font-size: 14.5px !important;
+}
+</style>

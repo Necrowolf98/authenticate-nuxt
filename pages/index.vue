@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import '~/assets/css/app.css'
+
 
 </script>
 
