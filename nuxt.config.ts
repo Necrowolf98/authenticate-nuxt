@@ -9,12 +9,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@pinia/nuxt',
-    'nuxt-primevue'
+    'nuxt-primevue',
+    '@nuxtjs/tailwindcss',
   ],
 
   css: [
     './assets/css/app.css',
-    './assets/css/themes/saga-blue/theme.css'
+    './assets/css/themes/saga-blue/theme.css',
+    'primeicons/primeicons.css',
   ]
 
 })
