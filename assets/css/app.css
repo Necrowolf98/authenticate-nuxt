@@ -5,6 +5,7 @@
 html {
     height: 100%;
     font-size: 14.5px;
+    line-height: normal;
 }
 
 body {
@@ -26,6 +27,13 @@ li {
     list-style: none;
 }
 
+.p-divider-dotted.p-divider-horizontal:before {
+    border-top-style: dotted !important;
+}
+
+.p-divider-solid.p-divider-horizontal:before {
+    border-top-style: solid !important;
+}
 /* LOGIN V1 */
 .auth-container {
     display: flex;
@@ -49,7 +57,7 @@ li {
     }
 
     .form-register-container {
-        width: 48rem;
+        width: 45rem;
         z-index: 1;
 
         .card-register-container {

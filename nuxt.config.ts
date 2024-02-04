@@ -18,5 +18,4 @@ export default defineNuxtConfig({
     './assets/css/themes/saga-blue/theme.css',
     'primeicons/primeicons.css',
   ]
-
 })

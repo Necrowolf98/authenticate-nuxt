@@ -19,9 +19,14 @@ type RegistrationInfo = {
   password_confirmation: string;
 }
 
+type ForgotInfo = {
+  email: String
+}
+
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<User | null>(null)
   const isLoggedIn = computed(() => !!user.value)
+  const processing = ref(false);
 
   async function logout() {
     await useApiFetch("/logout", {method: "POST"});
@@ -35,6 +40,7 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function login(credentials: Credentials) {
+    processing.value = true;    
     await useApiFetch("/sanctum/csrf-cookie");
 
     const login = await useApiFetch("/login", {
@@ -43,11 +49,12 @@ export const useAuthStore = defineStore('auth', () => {
     });
 
     await fetchUser();
-
+    processing.value = false;    
     return login;
   }
 
   async function register(info: RegistrationInfo) {
+    processing.value = true;
     await useApiFetch("/sanctum/csrf-cookie");
 
     const register = await useApiFetch("/register", {
@@ -56,9 +63,19 @@ export const useAuthStore = defineStore('auth', () => {
     });
 
     await fetchUser();
-
+    processing.value = false;
     return register;
   }
 
-  return {user, login, isLoggedIn, fetchUser, logout, register}
+  async function forgot(email: ForgotInfo) {
+    processing.value = true;
+    const forgot = await useApiFetch("/forgot-password", {
+      method: "POST",
+      body: email,
+    })
+    processing.value = false;
+    return forgot;
+  }
+
+  return {user, login, isLoggedIn, fetchUser, logout, register, forgot, processing }
 })

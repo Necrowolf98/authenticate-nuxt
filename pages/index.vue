@@ -7,6 +7,7 @@ import '~/assets/css/app.css'
 <template>
     <div>
         <h1>Index</h1>
+        <h1>hola</h1>
     </div>
 </template>
 
