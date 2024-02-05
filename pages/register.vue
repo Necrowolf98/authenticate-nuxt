@@ -5,6 +5,7 @@ import {useAuthStore} from '~/stores/useAuthStore';
 import guest from '~/middleware/guest';
 
 definePageMeta({
+	layout: 'auth',
 	middleware: [guest],
 });
 
@@ -25,6 +26,7 @@ const errors = ref<{
 }>({});
 
 const submitted = ref(false);
+const processing = computed(() => auth.processing);
 
 async function handleRegister(isFormValid: boolean) {
 	console.log(isFormValid);
@@ -145,7 +147,7 @@ const v$ = useVuelidate(validations, form.value);
 
 			<div class="col-span-2 flex justify-center mt-3 md:px-0">
 				<span class="text-bluegray-500 text-base">Ya tienes una cuenta?</span>
-				<router-link class="text-base font-bold text-bluegray-500 hover:text-primary" to="/auth/login">&nbsp; &nbsp; Inicia sesión</router-link>
+				<NuxtLink class="text-base font-bold text-bluegray-500 hover:text-primary" to="/login" :disabled="processing" :loading="processing">&nbsp; &nbsp; Inicia sesión</NuxtLink>
 			</div>
 
 			<div class="col-span-2">

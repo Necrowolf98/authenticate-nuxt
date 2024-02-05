@@ -2,9 +2,12 @@
 import {useAuthStore} from '~/stores/useAuthStore';
 import useVuelidate from '@vuelidate/core';
 import {required, email} from '@vuelidate/validators';
-
 import guest from '~/middleware/guest';
 
+definePageMeta({
+	layout: 'auth',
+	middleware: [guest],
+});
 const form = ref({
 	email: '',
 });
@@ -14,9 +17,10 @@ const errors = ref<{
 	[key in keyof typeof form]?: string[];
 }>({});
 
-const messages = ref()
+const messages = ref();
 const submitted = ref(false);
 const processing = computed(() => auth.processing);
+const emit = defineEmits(['messages']);
 
 async function handleForgot(isFormValid: Boolean) {
 	submitted.value = true;
@@ -26,10 +30,11 @@ async function handleForgot(isFormValid: Boolean) {
 		return navigateTo('/');
 	}
 
-	const {data, error} = await auth.forgot(form.value);	
-	
-	if(data.value?.status) {
-		messages.value
+	const {data, error} = await auth.forgot(form.value);
+
+	if (data.value?.status) {
+		messages.value = data.value.status;
+		emit('messages', messages.value);
 	}
 
 	if (error.value?.statusCode === 422) {
@@ -37,9 +42,7 @@ async function handleForgot(isFormValid: Boolean) {
 	}
 
 	if (!error.value) {
-		console.log('1');
-		
-		return navigateTo('/');
+		return navigateTo('/login');
 	}
 }
 
@@ -48,16 +51,10 @@ const validations = {
 };
 
 const v$ = useVuelidate(validations, form.value);
-
-definePageMeta({
-	middleware: [guest],
-});
 </script>
 
 <template>
 	<form @submit.prevent="handleForgot(!v$.$invalid)" class="p-fluid ml-3">
-		<!-- {{ messages }} -->
-
 		<div class="grid grid-flow-row mx-3 gap-3">
 			<div class="col-span-12">
 				<span class="p-input-icon-left">
@@ -72,7 +69,7 @@ definePageMeta({
 			</div>
 			<div class="col-span-12">
 				<Button class="border-round" label="Solicitar una nueva contraseña" type="submit" :disabled="processing" :loading="processing" />
-				<NuxtLink to="/auth/login">
+				<NuxtLink to="/login">
 					<span class="flex justify-center text-base text-primary py-2"><i class="pi pi-arrow-circle-left pr-2" style="font-size: 1.3rem"></i>Regresar al login </span>
 				</NuxtLink>
 			</div>

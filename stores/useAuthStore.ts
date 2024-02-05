@@ -5,6 +5,7 @@ type User = {
   id: number;
   name: string;
   email: string;
+  email_verified_at: Date;
 }
 
 type Credentials = {
@@ -20,7 +21,14 @@ type RegistrationInfo = {
 }
 
 type ForgotInfo = {
-  email: String
+  email: string
+}
+
+type ResetPasswordInfo = {
+  email: string;
+  password: string;
+  password_confirmation: string;
+  token: string;
 }
 
 export const useAuthStore = defineStore('auth', () => {
@@ -69,13 +77,37 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function forgot(email: ForgotInfo) {
     processing.value = true;
+    await useApiFetch("/sanctum/csrf-cookie");
     const forgot = await useApiFetch("/forgot-password", {
       method: "POST",
       body: email,
-    })
+    });
+
     processing.value = false;
     return forgot;
   }
 
-  return {user, login, isLoggedIn, fetchUser, logout, register, forgot, processing }
+  async function passwordReset(info: ResetPasswordInfo) {
+    processing.value = true;
+    await useApiFetch("/sanctum/csrf-cookie");
+    const passwordReset = await useApiFetch("/reset-password", {
+      method: "POST",
+      body: info,
+    });
+
+    processing.value = false;
+    return passwordReset;
+  }
+
+  async function sendVerify() {
+    processing.value = true;
+    await useApiFetch("/sanctum/csrf-cookie");
+    const sendVerify = await useApiFetch("/email/verification-notification", {
+      method: "POST"
+    });
+    processing.value = false;
+    return sendVerify;
+  }
+
+  return {user, login, isLoggedIn, fetchUser, logout, register, forgot, processing, passwordReset, sendVerify }
 })
