@@ -1,0 +1,9 @@
+.main-footer {
+    margin-left: 260px;
+    padding: 1rem;
+    transition: all .3s ease;
+
+    a {
+        color: #675ED4;
+    }
+}

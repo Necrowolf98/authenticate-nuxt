@@ -1,0 +1,88 @@
+.navbar {
+    position: relative;
+    width: calc(100% - 260px);
+    left: 260px;
+    transition: all .3s ease;
+
+    nav {
+        height: 64px;
+        padding: 0px 20px 0px 20px;
+        display: flex;
+        align-items: center;
+        grid-gap: 28px;
+        top: 0;
+        left: 0;
+        z-index: 100;
+
+        i {
+            cursor: pointer;
+        }
+
+        i .menu-btn {
+            font-size: 18px;
+        }
+
+        .profile {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+
+            i {
+                margin: 0px 0px 0px 20px;
+                font-size: 19px;
+                font-weight: 400;
+            }
+
+            .avatar {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                object-fit: cover;
+                cursor: pointer;
+            }
+
+            .profile-link {
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                padding: 10px 0;
+                border-radius: 10px;
+                width: 210px;
+                opacity: 0;
+                pointer-events: none;
+                transition: all .3s ease;
+            }
+    
+            .profile-link.show-menudropdown {
+                opacity: 1;
+                pointer-events: visible;
+                top: 110%;
+                z-index: 300;
+            }
+
+            .configuration {
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                padding: 10px 0;
+                border-radius: 10px;
+                width: 210px;
+                opacity: 0;
+                pointer-events: none;
+                transition: all .3s ease;
+            }
+
+            .configuration.show-configuration {
+                opacity: 1;
+                pointer-events: visible;
+                top: 110%;
+                z-index: 300;
+            }
+        }
+
+        .boton_cerrar_sesion {
+            font-size: .9rem;
+        }
+    }
+}

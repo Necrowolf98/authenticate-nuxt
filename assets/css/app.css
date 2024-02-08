@@ -1,3 +1,11 @@
+
+@import url('./imports/_themes.css');
+@import url('./imports/_sidebar.css');
+@import url('./imports/_navbar.css');
+@import url('./imports/_main.css');
+@import url('./imports/_footer.css');
+@import url('./imports/_responsive.css');
+
 * {
     box-sizing: border-box;
 }

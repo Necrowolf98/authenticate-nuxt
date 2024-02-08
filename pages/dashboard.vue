@@ -13,6 +13,8 @@ definePageMeta({
 <template>
     <div>
         <h1>Hola desde dashboard</h1>
+        <InputText placeholder="Ingrese su correo electrónico"  class="border-round"  />
+
     </div>
 </template>
 

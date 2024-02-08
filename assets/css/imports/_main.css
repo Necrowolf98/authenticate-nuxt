@@ -1,0 +1,156 @@
+.main {
+    position: relative;
+    width: calc(100% - 260px);
+    left: 260px;
+    /* padding: 30px 30px 30px 30px; */
+    padding: 10px 30px 30px 30px;
+    min-height: calc(100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px));
+    transition: all .3s ease;
+
+    /* BREADCRUMBS */
+    .breadcrumbs {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 1rem;
+        border-radius: .4rem;
+        margin-bottom: .8rem;
+    }
+    
+    .icon-breadcrubms {
+        font-size: .7rem;
+        padding: .35rem .5rem 0rem .5rem;
+    }
+
+    
+    /* DATATABLE PRIMEVUE */
+
+    /* THEAD TAMAÑO DE LETRA */
+    .p-column-title {
+        font-size: 12px;
+    }
+
+    /* QUITAR  FOCUS AZUL DEL THEAD */
+    .p-datatable .p-sortable-column:focus {
+        box-shadow: none;
+        outline: 0 none;
+    }
+
+    /* QUITAR ICON PARA SORTABLE HOVER */
+    .pi-sort-alt:before {
+        content: "";
+    }
+
+    /* HOVER THEAD PONER ICON SORTABLE  */
+    .p-sortable-column:hover .pi-sort-alt:before {
+        content: "\e91c";
+        font-size: .7rem;
+        font-weight: 900;
+    }
+
+                
+    /* CAMBIAR ICONO SORTABLE ORDER UP */
+    .pi-sort-amount-up-alt:before {
+        content: "\e91c";
+        font-size: .7rem;
+        font-weight: 900;
+    }
+
+    /* CAMBIAR ICONO SORTABLE ORDER DOWN */
+    .pi-sort-amount-down:before {
+        content: "\e919";
+        font-size: .7rem;
+        font-weight: 900;
+    }
+
+    /* REDUCIR TAMAÑO TBODY*/
+    .p-datatable-tbody {
+        font-size: .875rem;
+    }
+
+    /* REDUCIR TAMAÑO DEL PAGINATE + GROSOR DE LETRA */
+    .p-paginator-bottom {
+        font-size: .9rem;
+        font-weight: bold;
+    }
+
+    /* QUITAR FOCUS DE LOS LINK DEL PAGINATE */
+    .p-link:focus {
+        box-shadow: none;
+    }
+
+    /* ICON OVERLAY */
+    .p-datatable-loading-icon {
+        font-size: 3rem !important;
+    }
+    /*FIN DATATABLE PRIMEVUE */
+
+
+    /* Espacio para poner el icono en el input Multiselect */
+    .p-multiselect.p-component {
+        padding-left: 1.6rem;
+    }
+
+    /* Aparecer icono modal multiselect  */
+    .p-input-icon-left.p-input-icon-left-multiselect>i {
+        z-index: 1;
+    }
+
+    .p-paginator .p-dropdown .p-dropdown-label.p-inputtext {
+        outline: none;
+    }
+
+    /* Input number icono spaciado */
+     /* .p-inputtext.p-component.p-inputnumber-input {
+         padding-left: 1.8rem; 
+     } */
+
+    /* FILE OCULTAR PENDING Y BARRA DE CARGA*/
+    .p-fileupload-content .p-progressbar {
+        display: none;
+    }
+
+    .p-fileupload-file-details .p-fileupload-file-badge {
+        display: none;
+    }
+
+    .p-multiselect .p-multiselect-label {
+        font-size: 0.875rem;
+        padding: 0.4375rem 0.4375rem;
+    }
+
+     /* Para eliminar el fondo feo del preview */
+    .p-image-preview-indicator {
+        border: none;
+    }
+
+    .p-image-preview-container:hover > .p-image-preview-indicator{
+        background-color: transparent;
+    }
+
+    /* SKELETON */
+        .skeleton {
+            position: relative;
+        }
+        .skeleton::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background: linear-gradient(90deg, #eee, #f9f9f9, #eee);
+            background-size: 200%;
+            animation: skeleton 1s infinite reverse;
+        }
+        @keyframes skeleton {
+            0% {
+                background-position: -100% 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+        /* SKELETON */
+}

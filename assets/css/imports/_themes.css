@@ -1,0 +1,339 @@
+.layout-wrapper {
+    &.theme--light {
+        .navbar {
+            nav {
+                background: #fff;
+                border-bottom: 0.5px solid #e3e3e3;
+
+                i{
+                    color: #848389;
+                }
+
+                .navbar-clock {
+                    color: #6C757D;
+                }
+
+                .profile {
+                    .profile-link {
+                        box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+                    }
+
+                    .profile-link.show-menudropdown {
+                        border: 1px solid #e3e3e3;
+                        background: #fff;
+
+                        .p_logout {
+                            color: #6C757D;
+                        }
+            
+                        .boton_cerrar_sesion {
+                            background-color: white;
+                            border: 1px solid #DEDEDF;
+                            color: #6C757D;
+                        }
+            
+                        .boton_cerrar_sesion:hover {
+                            border: 1px solid #DEDEDF;
+                            color: rgba(0, 0, 0, .8);
+                            border: 1px solid #9b9b9c;
+                        }
+                    }
+
+                    .configuration {
+                        box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+                        span {
+                            color: #6C757D;
+                        }
+
+                        label {
+                            color: #6C757D;
+                        }
+                    }
+
+                    .configuration.show-configuration {
+                        border: 1px solid #e3e3e3;
+                        background: #fff;
+                    }
+
+                    .avatar {
+                        background-color: rgba(217, 219, 235, 0.5);
+                        color: #848389
+                    }        
+                }
+            }
+        }
+
+        .main {
+            background: #EFEFEF;
+
+            /* BREADCRUMBS */
+            .breadcrumbs {
+                border: 1px solid #dee2e6;
+                background: #ffffff;
+
+                span {
+                    color: var(--bluegray-500)
+                }
+                    
+                .link-breadcrumbs {
+                    color: #675ED4;
+                }
+
+                .icon-breadcrubms {
+                    color: #6E6B7B;
+                }
+            }
+
+            /* DATATABLE PRIMEVUE */
+            /* THEAD BACKGROUND SORTABLE */
+            .p-datatable .p-datatable-thead > tr > th {
+                background: #fff;
+                color: rgba(0, 0, 0, .6);
+                font-weight: bold;
+            }
+
+            /* FOCUS CLICK THEAD SORTABLE */
+            .p-datatable .p-sortable-column.p-highlight {
+                color: #313131;
+            }
+
+            /* HOVER THEAD SORTABLE */
+            .p-sortable-column:hover .p-column-header-content .p-column-title {
+                color: #313131;
+            }
+
+            /* HOVER THEAD ICON SORTABLE  */
+            .p-sortable-column:hover .pi-sort-alt:before {
+                color: rgba(0, 0, 0, .38);
+            }
+
+            /* ACTIVE THEAD ICON SORTABLE */
+            .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+                color: #313131;
+            }
+
+            /* ICON OVERLAY */
+            .p-datatable-loading-icon {
+                color: #dbdbdb;
+            }
+
+            /* DATATABLE OVERLAY */
+            .p-datatable-loading-overlay {
+                background: hsla(0, 0%, 100%, .5);
+            }
+            /*FIN DATATABLE PRIMEVUE */
+
+            /* DIALOG HEADER COLOR */
+            .p-dialog.modal_form .p-dialog-header {
+                background: #f8f9fa;
+                border-bottom: 0.5px solid #efefef;
+            }
+        }
+
+        .main-footer {
+            background-color: #fff;
+            border-top: 0.5px solid #e3e3e3;
+            color: #869099;
+        }
+    }
+
+    &.theme--dark {
+        .navbar {
+            nav {
+                background: #222738;
+
+                i {
+                    color: #fff;
+                }
+
+                .navbar-clock {
+                    color: #D0E4FF !important;
+                }
+                    
+                .profile {
+                    .profile-link {
+                        box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+                        a {
+                            color: #fff;
+                        }
+                        
+                        a:hover {
+                            background: #33455c;
+                        }
+                    }
+
+                    .profile-link.show-menudropdown {
+                        border: 1px solid #283046;
+                        background: #222738;
+
+                        .p_logout {
+                            color: #D0E4FF;
+                        }
+            
+                        .boton_cerrar_sesion {
+                            background-color: rgba(101, 99, 99, 0.3);
+                            border: 1px solid rgba(101, 99, 99, 0.8);
+                            color: #D0E4FF;
+                        }
+            
+                        .boton_cerrar_sesion:hover {
+                            background-color: rgba(101, 99, 99, 0.3);
+                            color: rgba(227, 226, 226, 0.9);
+                            border: 1px solid #9b9b9c;
+                        }
+                    }
+
+                    .configuration {
+                        box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+                    }
+
+                    .configuration.show-configuration {
+                        border: 1px solid #283046;
+                        background: #222738;
+
+                        span {
+                            color: #D0E4FF;
+                        }
+
+                        label {
+                            color: #D0E4FF;
+                        }
+                    }
+
+                    .avatar {
+                        background-color: rgba(217, 219, 235, 0.5);
+                        color: #fff
+                    }
+                }
+            }
+        }
+
+        .main {
+            background: #283046;
+
+            /* BREADCRUMBS */
+            .breadcrumbs {
+                border: 1px solid #304562;
+                background: #1f2d40;
+
+                span {
+                    color: var(--bluegray-200)
+                }
+                    
+                .link-breadcrumbs {
+                    color: #968ff5;
+                }
+
+                .icon-breadcrubms {
+                    color: #495f80;
+                }
+            }
+            /* FIN BREADCRUMBS */
+
+
+            /* DATATABLE PRIMEVUE */
+            /* THEAD BACKGROUND SORTABLE */
+            .p-datatable .p-datatable-thead > tr > th {
+                background: #1F2D40;
+                color: rgba(255, 255, 255, 0.87);
+                font-weight: bold;
+            }
+
+            /* FOCUS CLICK THEAD SORTABLE */
+            .p-datatable .p-sortable-column.p-highlight {
+                color: rgba(255, 255, 255, 1);
+            }
+
+            /* HOVER THEAD SORTABLE */
+            .p-sortable-column:hover .p-column-header-content .p-column-title {
+                color: rgba(255, 255, 255, 1);
+            }
+
+            /* HOVER THEAD ICON SORTABLE  */
+            .p-sortable-column:hover .pi-sort-alt:before {
+                color: rgba(255, 255, 255, 0.40);
+            }
+
+            /* ACTIVE THEAD ICON SORTABLE */
+            .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+                color: rgba(255, 255, 255, 1);
+            }
+
+            /* ICON OVERLAY */
+            .p-datatable-loading-icon {
+                color: #b2b2b2;
+            }
+
+            /* DATATABLE OVERLAY */
+            .p-datatable-loading-overlay {
+                background: rgba(40, 48, 70, 0.5);
+            }
+            /*FIN DATATABLE PRIMEVUE */
+
+
+            /* DIALOG HEADER COLOR */
+            .p-dialog.modal_form .p-dialog-header {
+                background: #1f2d40;
+                border-bottom: 0.5px solid #2e3b4d;
+            }
+
+            
+            /* FORMULARIOS */
+            /* INPUT TEXT PLACEHOLDER COLOR ERROR */
+            .p-inputtext.input-error::placeholder {
+                color: #ef9a9a;
+            }
+
+            /* INPUT TEXT OUTLINED COLOR ERROR */
+            .p-inputtext:enabled:focus.p-invalid {
+                box-shadow: 0 0 0 0.2rem #976b6b;
+            }
+
+            /* INPUT TEXT ICON COLOR ERROR */
+            .input-icon-error {
+                color: #ef9a9a;
+            }
+
+            /* INPUT PASSWORD OUTLINED COLOR ERROR */
+            .p-password.p-component.p-invalid.input-error > .p-inputtext:enabled:focus {
+                box-shadow: 0 0 0 0.2rem #976b6b;
+            }
+
+            /* INPUT PASSWORD PLACEHOLDER COLOR ERROR */
+            .p-password.p-invalid.p-component > .p-inputtext::placeholder {
+                color: #ef9a9a;
+            }
+
+            /* INPUT PASSWORD ICON COLOR ERROR */
+            .p-password.p-component.p-invalid.p-input-icon-right > i {
+                color: #ef9a9a;
+            }
+
+            /* MULTISELECT PLACEHOLDER COLOR ERROR */
+            .p-multiselect.p-invalid .p-multiselect-label-container > .p-multiselect-label.p-placeholder {
+                color: #ef9a9a;
+            }
+
+            /* MULTISELECT ICON COLOR ERROR */
+            .p-multiselect.p-invalid .p-multiselect-trigger > .p-multiselect-trigger-icon {
+                color: #ef9a9a;
+            }
+
+            /* CHECKBOX COLOR ERROR */
+            .error-checkbox-datatable .p-checkbox .p-checkbox-box {
+                border: 2px solid #ef9a9a;
+            }
+
+            /* INPUT NUMBER ERRORS */
+            .p-inputnumber.input-error .p-inputtext.p-component:enabled:focus {
+                box-shadow: 0 0 0 0.2rem #ef9a9a;
+            }
+        }
+
+        .main-footer {
+            background-color: #283046;
+            border-top: 1px solid #3b4255;
+            color: #869099;
+        }
+    }
+}

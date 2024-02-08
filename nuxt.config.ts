@@ -7,15 +7,27 @@ export default defineNuxtConfig({
     }
   },
   devtools: { enabled: true },
+  app: {
+    head: {
+      title: 'Anthony S.A',
+      link: [
+        {
+          id: 'theme-css',
+          rel: 'stylesheet',
+          type: 'text/css',
+          href: '/themes/saga-blue/theme.css'          
+        }
+      ]
+    }
+  },
   modules: [
     '@pinia/nuxt',
     'nuxt-primevue',
     '@nuxtjs/tailwindcss',
   ],
-
   css: [
     './assets/css/app.css',
-    './assets/css/themes/saga-blue/theme.css',
     'primeicons/primeicons.css',
-  ]
+    'primevue/resources/primevue.min.css',
+  ],
 })
