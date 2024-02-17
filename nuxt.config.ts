@@ -22,8 +22,8 @@ export default defineNuxtConfig({
   },
   modules: [
     '@pinia/nuxt',
-    'nuxt-primevue',
     '@nuxtjs/tailwindcss',
+    'nuxt-primevue',
   ],
   css: [
     './assets/css/app.css',
