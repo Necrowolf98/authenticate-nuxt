@@ -14,9 +14,9 @@ const form = ref({
 	lastname: '',
 	direction: '',
 	email: '',
+	phone: '',
 	password: '',
 	password_confirmation: '',
-	phone: '',
 });
 
 const auth = useAuthStore();

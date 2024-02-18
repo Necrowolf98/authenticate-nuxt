@@ -4,7 +4,10 @@ import {useApiFetch} from "~/composables/useApiFetch";
 type User = {
   id: number;
   name: string;
+  lastname: string;
+  direction: string;
   email: string;
+  phone: number;
   email_verified_at: Date;
 }
 
@@ -15,7 +18,10 @@ type Credentials = {
 
 type RegistrationInfo = {
   name: string;
+  lastname: string;
+  direction: string;
   email: string;
+  phone: string;
   password: string;
   password_confirmation: string;
 }
@@ -36,7 +42,7 @@ export const useAuthStore = defineStore('auth', () => {
   const isLoggedIn = computed(() => !!user.value)
   const processing = ref(false);
 
-  async function logout() {
+  async function logout() {    
     await useApiFetch("/logout", {method: "POST"});
     user.value = null;
     navigateTo("/login");

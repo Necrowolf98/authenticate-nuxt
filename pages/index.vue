@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import '~/assets/css/app.css'
 import auth from '~/middleware/auth';
 import verify from '~/middleware/verify';
 

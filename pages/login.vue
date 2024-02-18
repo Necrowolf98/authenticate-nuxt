@@ -34,13 +34,13 @@ async function handleLogin(isFormValid: Boolean) {
 	}
 
 	const {error} = await auth.login(form.value);
-
+	
 	if (error.value?.statusCode === 422) {
 		errors.value = error.value.data?.errors;
 	}
 
 	if (!error.value) {
-		return navigateTo('/');
+		return navigateTo('/dashboard');
 	}
 }
 

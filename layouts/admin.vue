@@ -1,6 +1,4 @@
 <script setup>
-const instance = getCurrentInstance();
-
 const animate = ref(false);
 const layoutMode = ref();
 
@@ -107,7 +105,11 @@ const changeTheme = (event) => {
 			linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
 		}
 	} else {
-		nocturne.value = !nocturne.value;
+		if(event.logout){
+			nocturne.value = false;
+		}else{
+			nocturne.value = !nocturne.value;
+		}
 		localStorage.setItem('nocturne', nocturne.value);
 		localStorage.setItem('theme', event.theme);
 

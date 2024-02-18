@@ -11,9 +11,11 @@ definePageMeta({
 
 <template>
     <div>
-        <h1>Hola desde dashboard</h1>
-        <InputText placeholder="Ingrese su correo electrónico"  class="border-round"  />
+        <div>
+            <h1>Hola desde dashboard</h1>
+            <NuxtLink to="/dashboard">User</NuxtLink>
 
+        </div>
     </div>
 </template>
 

@@ -1,29 +1,20 @@
 <script setup>
 const props = defineProps(['menuinactive', 'resizewindow']);
 
-import {onBeforeRouteUpdate, useRoute} from 'vue-router';
+import {useRoute} from 'vue-router';
 const route = useRoute();
 
 const upHere = ref(false);
 
 const dropdown_routes_security = computed(() => [
-  '/user',
-  '/usershow',
-  '/userpermissions',
-  '/userip',
-  '/rolesindex',
-  '/rolescreate',
-  '/rolesedit',
-  '/permissionindex',
-  '/profileindex'
+  '/users',
 ].includes(route.path));
 
 const dropdown_security = ref(dropdown_routes_security.value);
 
-// onBeforeRouteUpdate((to, from, next) => {
-// 	dropdown_security.value = !dropdown_routes_security.value;
-// 	next();
-// });
+watchEffect(() => {
+  dropdown_security.value = dropdown_routes_security.value;
+});
 </script>
 
 <template>
@@ -58,12 +49,12 @@ const dropdown_security = ref(dropdown_routes_security.value);
 				</a>
 
 				<ul class="items-dropdown" :class="[{show: menuinactive == true && dropdown_security == true && upHere == true}, {show: menuinactive == false && dropdown_security == true}]">
-					<!-- <li>
-						<router-link to="/user">
+					<li>
+						<NuxtLink to="/users" :class="$route.name == 'users' ? 'active' : ''">
 							<i class="pi pi-users icon"></i>
 							Usuarios
-						</router-link>
-					</li> -->
+						</NuxtLink>
+					</li>
 
 					<!-- <li v-if="auth.permission.includes('roles.index')">
                         <router-link :href="route('roles.index')" :class="route().current('roles.index') || route().current('roles.create') || route().current('roles.edit')? 'active' : ''">
