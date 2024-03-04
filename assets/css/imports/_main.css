@@ -36,6 +36,11 @@
         outline: 0 none;
     }
 
+    /* QUITAR  TAMAÑO DEL THEAD */
+    .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+        padding: 0.1rem 0.5rem;
+    }
+
     /* QUITAR ICON PARA SORTABLE HOVER */
     .pi-sort-alt:before {
         content: "";
@@ -48,7 +53,6 @@
         font-weight: 900;
     }
 
-                
     /* CAMBIAR ICONO SORTABLE ORDER UP */
     .pi-sort-amount-up-alt:before {
         content: "\e91c";

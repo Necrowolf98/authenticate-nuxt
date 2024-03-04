@@ -1,4 +1,9 @@
 <script setup>
+import {LoadingStore} from '~/stores/LoadingStore';
+const loading = LoadingStore();
+
+import LoadingContent from '~/components/LoadingContent.vue';
+
 const animate = ref(false);
 const layoutMode = ref();
 
@@ -170,6 +175,7 @@ onBeforeMount(() => {
 				<ConfirmDialog :draggable="false" style="width: 400px" :breakpoints="{'500px': '300px'}"></ConfirmDialog>
 
 				<main>
+					<loading-content :is-loading="loading.state"/>
 					<slot />
 					<ScrollTop target="window" :threshold="100" class="custom-scrolltop" icon="pi pi-chevron-up" />
 				</main>

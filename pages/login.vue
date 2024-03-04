@@ -10,7 +10,7 @@ definePageMeta({
 });
 
 const form = ref({
-	email: 'test@example.com',
+	email: 'anthonychica.98@gmail.com',
 	password: 'password',
 });
 
